@@ -11,3 +11,23 @@ vim.keymap.set(
   end,
   { silent = true, buffer = bufnr }
 )
+
+vim.g.rustaceanvim = {
+  -- Plugin configuration
+  tools = {},
+  -- LSP configuration
+  server = {
+    on_attach = function(client, buf)
+      -- you can also put keymaps in here
+      vim.lsp.inlay_hint.enable(true, { bufnr = buf })
+    end,
+    -- default_settings = {
+    --   -- rust-analyzer language server configuration
+    --   ['rust-analyzer'] = {
+    --   },
+    -- },
+  },
+  -- DAP configuration
+  -- dap = {
+  -- },
+}
